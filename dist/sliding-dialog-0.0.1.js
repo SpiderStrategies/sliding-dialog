@@ -7,9 +7,9 @@
   "use strict"
 
   var template = "<div>" +
-                    "<div class='dropdown-opener'><%= opener %></div>" +
+                    "<div class='dropdown-opener'></div>" +
                     "<div class='dropdown-content closed'>" +
-                      "<div class='dropdown-content-inner'><%= content %></div>" +
+                      "<div class='dropdown-content-inner'></div>" +
                     "</div>" +
                  "</div>"
 
@@ -40,7 +40,9 @@
     },
 
     render: function () {
-      this.$el.html(_.template(template)(this.model))
+      this.$el.html(_.template(template)())
+      this.$('.dropdown-opener').html(this.model.opener)
+      this.$('.dropdown-content-inner').html(this.model.content)
       this.content = this.$('.dropdown-content')
       return this
     },
