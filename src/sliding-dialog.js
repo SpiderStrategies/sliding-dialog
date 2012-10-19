@@ -25,7 +25,7 @@
     },
 
     initialize: function (opts) {
-      if (!opts || !opts.opener !! !opts.content) {
+      if (!opts || !opts.opener || !opts.content) {
         throw new Error('Pass in opts.opener and opts.content')
       }
       this.model = {
