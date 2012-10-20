@@ -8,12 +8,19 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
     <script src="./src/sliding-dialog.js"></script>
     <link rel="stylesheet" type="text/css" href="./src/sliding-dialog.css" />
+    <style>
+
+      .dropdown-content {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+      }
+
+    </style>
     <script>
 
         $(function () {
           var dialog = new Backbone.SlidingDialog({
             opener: '<i style="font-size: 36px">+</i>',
-            content: '<p style="width: 150px; color: #bbb;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in justo metus. Aliquam erat volutpat. .</p>'
+            content: '<p class="dialog-content" style="width: 150px; color: #bbb;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in justo metus. Aliquam erat volutpat.</p>'
           }).render()
 
           $("#dialog-spot").append(dialog.el)
