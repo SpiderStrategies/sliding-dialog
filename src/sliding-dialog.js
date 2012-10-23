@@ -52,9 +52,11 @@
         setTimeout(function () {
           self.content.css({ 'max-height': 0, 'opacity': 0 })
         }, 10)
+        self.trigger('close')
       } else {
         var h = this.content.outerHeight() + this.content.find('.dropdown-content-inner').outerHeight()
         this.content.css({ 'max-height': h, 'opacity': 1 })
+        self.trigger('open')
       }
     }
   })

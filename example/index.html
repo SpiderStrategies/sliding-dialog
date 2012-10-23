@@ -23,6 +23,14 @@
             content: '<p class="dialog-content" style="width: 150px; color: #bbb;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in justo metus. Aliquam erat volutpat.</p>'
           }).render()
 
+          dialog.on('close', function () {
+            console.log('closed')
+          })
+
+          dialog.on('open', function () {
+            console.log('opened')
+          })
+
           $("#dialog-spot").append(dialog.el)
 
         });
