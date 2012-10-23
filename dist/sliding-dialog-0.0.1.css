@@ -1,6 +1,7 @@
 .dropdown-opener {
-  font-size: 50px;
   position: relative;
+  padding: 0;
+  margin: 0;
   z-index: 9999;
   display: inline-block;
   -webkit-transition: all 0.5s ease-in-out;
@@ -37,10 +38,9 @@
 }
 
 .dropdown-opener-rotate {
-  -webkit-transform:rotate(45deg);
-  -moz-transform:rotate(45deg);
-  -ms-transform:rotate(45deg);
-  -o-transform:rotate(45deg);
-  transform:rotate(45deg);
+  -webkit-transform:rotate(-135deg);
+  -moz-transform:rotate(-135deg);
+  -ms-transform:rotate(-135deg);
+  -o-transform:rotate(-135deg);
+  transform:rotate(-135deg);
 }
-
