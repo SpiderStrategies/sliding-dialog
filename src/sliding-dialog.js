@@ -11,7 +11,7 @@
   var SlidingDialog = Backbone.View.extend({
 
     events: {
-      'click .dropdown-opener': 'open',
+      'click .dropdown-opener': 'toggle',
       'webkitTransitionEnd .dropdown-content': 'transitionEnd',
       'transitionEnd .dropdown-content': 'transitionEnd',
       'oTransitionEnd .dropdown-content': 'transitionEnd',
@@ -42,22 +42,26 @@
       return this
     },
 
-    open: function (e) {
+    close: function () {
       var self = this
-      this.content.toggleClass('closed open')
-      this.$('.dropdown-opener').toggleClass('dropdown-opener-rotate')
+      this.$('.dropdown-opener').removeClass('dropdown-opener-rotate')
+      this.content.css('max-height', this.content.outerHeight())
+      setTimeout(function () {
+        self.content.css({ 'max-height': 0, 'opacity': 0 })
+      }, 10)
+      self.trigger('close')
+    },
 
-      if (this.content.hasClass('closed')) {
-        this.content.css('max-height', this.content.outerHeight())
-        setTimeout(function () {
-          self.content.css({ 'max-height': 0, 'opacity': 0 })
-        }, 10)
-        self.trigger('close')
-      } else {
-        var h = this.content.outerHeight() + this.content.find('.dropdown-content-inner').outerHeight()
-        this.content.css({ 'max-height': h, 'opacity': 1 })
-        self.trigger('open')
-      }
+    open: function () {
+      this.$('.dropdown-opener').addClass('dropdown-opener-rotate')
+      var h = this.content.outerHeight() + this.content.find('.dropdown-content-inner').outerHeight()
+      this.content.css({ 'max-height': h, 'opacity': 1 })
+      this.trigger('open')
+    },
+
+    toggle: function (e) {
+      this.content.toggleClass('closed open')
+      this.content.hasClass('closed') ? this.close() : this.open()
     }
   })
 
