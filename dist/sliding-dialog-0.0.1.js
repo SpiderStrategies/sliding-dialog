@@ -49,6 +49,7 @@
 
     close: function () {
       var self = this
+      this.content.removeClass('open').addClass('closed')
       this.$('.dropdown-opener').removeClass('dropdown-opener-rotate')
       this.content.css('max-height', this.content.outerHeight())
       setTimeout(function () {
@@ -58,6 +59,7 @@
     },
 
     open: function () {
+      this.content.removeClass('closed').addClass('open')
       this.$('.dropdown-opener').addClass('dropdown-opener-rotate')
       var h = this.content.outerHeight() + this.content.find('.dropdown-content-inner').outerHeight()
       this.content.css({ 'max-height': h, 'opacity': 1 })
@@ -65,8 +67,7 @@
     },
 
     toggle: function (e) {
-      this.content.toggleClass('closed open')
-      this.content.hasClass('closed') ? this.close() : this.open()
+      this.content.hasClass('open') ? this.close() : this.open()
     }
   })
 
