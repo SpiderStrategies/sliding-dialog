@@ -1,3 +1,8 @@
+/*!
+ * sliding-dialog.js v0.0.2 
+ * Copyright 2012, Spider Strategies <nathan.bowser@spiderstrategies.com> 
+ * sliding-dialog.js may be freely distributed under the BSD license. 
+*/
 (function (root) {
   "use strict"
 
